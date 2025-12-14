@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Transmissão</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: black;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.section {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+button {
+  margin-top: 30px;
+  padding: 14px 28px;
+  font-size: 14px;
+  letter-spacing: 0.15em;
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+}
+
+.locked {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="madrugada" class="section" style="background-image:url('madrugada.jpg')">
+  <div class="content">
+    <p>visão da madrugada</p>
+    <button class="locked">TRANSMISSÃO BLOQUEADA</button>
+  </div>
+</div>
+
+<div id="manha" class="section" style="background-image:url('manha.jpg')">
+  <div class="content">
+    <p>sinal instável</p>
+    <button class="locked">TRANSMISSÃO BLOQUEADA</button>
+  </div>
+</div>
+
+<div id="tarde" class="section" style="background-image:url('tarde.jpg')">
+  <div class="content">
+    <p>transmissão ativa</p>
+    <button class="locked">TRANSMISSÃO BLOQUEADA</button>
+  </div>
+</div>
+
+<div id="noite" class="section" style="background-image:url('noite.jpg')">
+  <div class="content">
+    <p>canal aberto</p>
+    <button class="locked">TRANSMISSÃO BLOQUEADA</button>
+  </div>
+</div>
+
+<script>
+const hour = new Date().getHours();
+const launchDate = new Date("2025-02-20T00:00:00");
+const spotifyLink = "https://open.spotify.com/SEU-LINK";
+
+let section;
+
+if (hour < 6) section = "madrugada";
+else if (hour < 12) section = "manha";
+else if (hour < 18) section = "tarde";
+else section = "noite";
+
+document.getElementById(section).style.display = "block";
+
+if (new Date() >= launchDate) {
+  document.querySelectorAll("button").forEach(btn => {
+    btn.classList.remove("locked");
+    btn.textContent = "OUVIR NO SPOTIFY";
+    btn.onclick = () => window.open(spotifyLink, "_blank");
+  });
+}
+</script>
+
+</body>
+</html>
