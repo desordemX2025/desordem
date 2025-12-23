@@ -42,7 +42,7 @@
       font-size: 16px;
       letter-spacing: 1px;
       margin-bottom: 18px;
-      opacity: 0.85;
+      opacity: 0.9;
       text-transform: uppercase;
     }
 
@@ -55,8 +55,14 @@
       letter-spacing: 2px;
       font-size: 14px;
       text-transform: uppercase;
-      opacity: 0.5;
-      cursor: not-allowed;
+      cursor: pointer;
+      opacity: 0.9;
+      transition: all 0.3s ease;
+    }
+
+    .button:hover {
+      background: white;
+      color: black;
     }
   </style>
 </head>
@@ -66,10 +72,15 @@
   <div class="overlay">
     <div class="content">
       <div class="status-text">
-        Acesso bloqueado, volte 21/12
+        Acesso liberado
       </div>
 
-      <a id="actionButton" class="button">
+      <a 
+        id="actionButton" 
+        class="button" 
+        href="https://open.spotify.com/intl-pt/album/1cUNKvpAwDZ3LnvfQje0Ro?si=0wh1pxAWSmeFndvwm3IxEA"
+        target="_blank"
+      >
         Iniciar a desordem
       </a>
     </div>
